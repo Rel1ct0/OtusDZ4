@@ -1,0 +1,9 @@
+---
+- name: apply common configuration to all nodes
+  hosts: allExt
+  become: yes
+  roles:
+  - common
+
+
+- import_playbook: playbooks/DZ3.yml 

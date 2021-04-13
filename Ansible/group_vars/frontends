@@ -1,0 +1,4 @@
+ntpserver: 0.ru.pool.ntp.org
+kibana_elasticsearch_url: "{{ groups['backends'] | map('extract', hostvars, ['ansible_ssh_host']) | list }}"
+kibana_elasticsearch_username: rel1ct0
+kibana_elasticsearch_password: P@ssw0rd

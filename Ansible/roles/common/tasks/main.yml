@@ -1,0 +1,19 @@
+---
+- name: Install ntp
+  become: yes
+  apt:
+   name: ntp
+   state: present
+
+- name: Configure ntp 
+  template:
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf
+  notify: restart ntp
+
+- name: Start ntp
+  become: yes
+  service:
+    name: ntp
+    state: started
+    enabled: yes

@@ -1,0 +1,9 @@
+----------
+- name: apply common configuration to all nodes
+  hosts: all
+  remote_user: root
+  roles:
+  - common
+
+- import_playbook: playbooks/DZ3.yml
+

@@ -1,0 +1,24 @@
+- hosts: frontends
+  gather_facts: true
+  become: true
+  roles:
+        - kibana
+
+
+- hosts: backends
+  gather_facts: false
+  become: true
+  roles:
+        - elasticsearch
+  vars:
+        - ansible_os_family: Debian
+
+- hosts: databases
+  gather_facts: false
+  become: true
+  roles:
+        - logstash
+  vars:
+        - ansible_os_family: Debian
+
+ 

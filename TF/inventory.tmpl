@@ -1,0 +1,35 @@
+[frontends]
+%{ for index, frontIP in frontIPs ~}
+frontend-${index} ansible_ssh_host=${frontIP}
+%{ endfor ~}
+
+[backends]
+%{ for index, backIP in backIPs ~}
+backend-${index} ansible_ssh_host=${backIP}
+%{ endfor ~}
+
+[databases]
+%{ for index, dataIP in dataIPs ~}
+databases-${index} ansible_ssh_host=${dataIP}
+%{ endfor ~}
+
+[frontendsInt]
+%{ for index, frontIPInt in frontIPsInt ~}
+frontendInt-${index} ansible_ssh_host=${frontIPInt}
+%{ endfor ~}
+
+[backendsInt]
+%{ for index, backIPInt in backIPsInt ~}
+backendInt-${index} ansible_ssh_host=${backIPInt}
+%{ endfor ~}
+
+[databasesInt]
+%{ for index, dataIPInt in dataIPsInt ~}
+databasesInt-${index} ansible_ssh_host=${dataIPInt}
+%{ endfor ~}
+
+[allExt:children]
+frontends
+backends
+databases
+

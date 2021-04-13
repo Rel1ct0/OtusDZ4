@@ -1,0 +1,2 @@
+ntpserver: 1.ru.pool.ntp.org
+elasticsearch_network_host: 0.0.0.0
